@@ -1,9 +1,13 @@
 package com.project.bookingHotel.user.services;
 
+import com.project.bookingHotel.user.dtos.UserCreateDto;
 import com.project.bookingHotel.user.model.User;
 import com.project.bookingHotel.user.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,24 +17,21 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public User createUser(User user){
-        return userRepository.save(user);
+    public ResponseEntity createUser(UserCreateDto user){
+        System.out.println("Passei no service, linha 20 " + user);
+        System.out.println("Linha 22, apenas e-mail " + user.email());
+
+        if(userRepository.findByEmail(user.email()) != null){
+            return ResponseEntity.badRequest().body("Já há usuário cadastrado com esse e-mail");
+        }
+        String passwordEncrypt = new BCryptPasswordEncoder().encode(user.password());
+        System.out.println(passwordEncrypt);
+        User newUser = new User(user.name(), user.email(), passwordEncrypt);
+        System.out.println("Passei no service, linha 26 " + newUser);
+        userRepository.save(newUser);
+
+        return ResponseEntity.ok().body("Usuário cadastrado com sucesso");
     }
-
-    /*public ResponseEntity<?> createUser(User user) {
-    String email = user.getEmail();
-
-    if (userRepository.existsByEmail(email)) {
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-                .body("O e-mail já está em uso. Por favor, escolha outro.");
-    }
-
-    // Se o e-mail não existe, você pode continuar com a criação do usuário
-    User createdUser = userRepository.save(user);
-
-    return ResponseEntity.status(HttpStatus.CREATED)
-            .body(createdUser);
-}*/
 
     public List<User> getAllUsers(){
         return userRepository.findAll();
@@ -49,7 +50,7 @@ public class UserService {
                     userUpdate.setName((userUpdate.getName()));
                     userUpdate.setPassword((userUpdate.getPassword()));
                     User updateUser = userRepository.save(user);
-                    return ResponseEntity.ok().body(userUpdate);
+                    return ResponseEntity.ok().body(updateUser);
         }).orElse(ResponseEntity.notFound().build());
     }
 

@@ -1,7 +1,9 @@
 package com.project.bookingHotel.user.controllers;
 
+import com.project.bookingHotel.user.dtos.UserCreateDto;
 import com.project.bookingHotel.user.model.User;
 import com.project.bookingHotel.user.services.UserService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +20,8 @@ public class UserController {
 
     @PostMapping("/create/")
     @ResponseStatus(HttpStatus.CREATED)
-    public User createUser(@RequestBody User user){
+    public ResponseEntity createUser(@RequestBody @Valid UserCreateDto user){
+        System.out.println("Passei no controller" + user);
         return userService.createUser(user);
     }
 
