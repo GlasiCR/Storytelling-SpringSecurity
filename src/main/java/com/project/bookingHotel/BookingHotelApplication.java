@@ -10,5 +10,4 @@ public class BookingHotelApplication {
 		SpringApplication.run(BookingHotelApplication.class, args);
 		System.out.println("Agora vai");
 	}
-
 }
