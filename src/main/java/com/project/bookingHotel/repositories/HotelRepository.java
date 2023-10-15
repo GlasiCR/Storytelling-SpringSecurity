@@ -1,5 +1,5 @@
-package com.project.bookingHotel.hotel.repositories;
-import com.project.bookingHotel.hotel.model.Hotel;
+package com.project.bookingHotel.repositories;
+import com.project.bookingHotel.model.Hotel;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

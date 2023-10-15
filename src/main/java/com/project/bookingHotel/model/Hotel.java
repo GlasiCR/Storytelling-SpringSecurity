@@ -1,7 +1,6 @@
-package com.project.bookingHotel.hotel.model;
+package com.project.bookingHotel.model;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.project.bookingHotel.room.model.Room;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;

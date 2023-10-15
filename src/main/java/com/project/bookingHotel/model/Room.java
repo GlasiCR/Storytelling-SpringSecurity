@@ -1,7 +1,7 @@
-package com.project.bookingHotel.room.model;
+package com.project.bookingHotel.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.project.bookingHotel.hotel.model.Hotel;
+import com.project.bookingHotel.model.Hotel;
 import jakarta.persistence.*;
 import lombok.Data;
 

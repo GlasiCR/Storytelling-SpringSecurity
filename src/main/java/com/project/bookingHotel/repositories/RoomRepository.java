@@ -1,9 +1,6 @@
-package com.project.bookingHotel.room.repositories;
+package com.project.bookingHotel.repositories;
 
-import com.project.bookingHotel.hotel.model.Hotel;
-import com.project.bookingHotel.room.model.Room;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
+import com.project.bookingHotel.model.Room;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

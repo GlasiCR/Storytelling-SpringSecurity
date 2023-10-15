@@ -1,7 +1,6 @@
-package com.project.bookingHotel.room.controllers;
+package com.project.bookingHotel.controllers;
 
-import com.project.bookingHotel.room.model.Room;
-import com.project.bookingHotel.room.services.RoomService;
+import com.project.bookingHotel.services.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

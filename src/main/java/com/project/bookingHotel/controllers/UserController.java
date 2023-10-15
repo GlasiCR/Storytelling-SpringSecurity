@@ -1,8 +1,8 @@
-package com.project.bookingHotel.user.controllers;
+package com.project.bookingHotel.controllers;
 
-import com.project.bookingHotel.user.dtos.UserCreateDto;
-import com.project.bookingHotel.user.model.User;
-import com.project.bookingHotel.user.services.UserService;
+import com.project.bookingHotel.dtos.UserCreateDto;
+import com.project.bookingHotel.model.User;
+import com.project.bookingHotel.services.UserService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

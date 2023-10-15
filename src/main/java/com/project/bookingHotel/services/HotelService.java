@@ -1,8 +1,7 @@
-package com.project.bookingHotel.hotel.service;
+package com.project.bookingHotel.services;
 
-import com.project.bookingHotel.hotel.model.Hotel;
-import com.project.bookingHotel.hotel.repositories.HotelRepository;
-import com.project.bookingHotel.user.model.User;
+import com.project.bookingHotel.model.Hotel;
+import com.project.bookingHotel.repositories.HotelRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;

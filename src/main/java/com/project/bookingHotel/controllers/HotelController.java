@@ -1,15 +1,13 @@
-package com.project.bookingHotel.hotel.controller;
+package com.project.bookingHotel.controllers;
 
-import com.project.bookingHotel.hotel.model.Hotel;
-import com.project.bookingHotel.hotel.service.HotelService;
-import com.project.bookingHotel.user.model.User;
+import com.project.bookingHotel.model.Hotel;
+import com.project.bookingHotel.services.HotelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/hotels")
