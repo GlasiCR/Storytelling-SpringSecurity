@@ -19,7 +19,7 @@ Sugiro extrair a dependência direto da fonta assim mitiga eventuais problemas p
 
 4)	Vamos falar para a nossa ferramenta de segurança que eu farei as configurações de segurança conforme necessidade:
 
-``` 
+``` java
 @Configuration
 @EnableWebSecurity
 public class AuthConfig {
