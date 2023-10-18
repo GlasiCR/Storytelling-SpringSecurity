@@ -23,8 +23,10 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(nullable = false, unique = true)
-    private String login;
-   @Column(nullable = false, length = 10)
+    private String name;
+    @Column(nullable = false, unique = true)
+    private String email;
+   @Column(nullable = false)
     private String password;
     @Enumerated(EnumType.STRING)
     private UserRole role;
@@ -39,16 +41,17 @@ public class User implements UserDetails {
     @Column(name="updatedAt", nullable = false)
     private LocalDateTime updatedAt;
 
-    public User(String login, String password, UserRole role) {
-        this.login = login;
+    public User(String name, String email, String password, UserRole role) {
+        this.name = name;
+        this.email = email;
         this.password = password;
         this.role = role;
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        if(this.role == UserRole.ADMIN) return List.of(new SimpleGrantedAuthority("ROLE_ADMIN"), new SimpleGrantedAuthority("ROLE_USER"));
-        else return List.of(new SimpleGrantedAuthority("ROLE_USER"));
+       if(this.role == UserRole.ADMIN) return List.of(new SimpleGrantedAuthority("ROLE_ADMIN"), new SimpleGrantedAuthority("ROLE_USER"));
+       else return List.of(new SimpleGrantedAuthority("ROLE_USER"));
     }
 
     @Override
@@ -58,7 +61,7 @@ public class User implements UserDetails {
 
     @Override
     public String getUsername() {
-        return login;
+        return email;
     }
 
     @Override

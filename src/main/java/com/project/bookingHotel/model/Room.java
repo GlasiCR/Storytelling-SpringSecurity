@@ -23,7 +23,7 @@ public class Room {
     @Column(nullable = false)
     private Integer numberOfVacantRooms;
     @ManyToOne
-    @JoinColumn(name = "hotel_id")
     @JsonBackReference
+    @JoinColumn(name = "hotel_id")
     private Hotel hotel;
 }

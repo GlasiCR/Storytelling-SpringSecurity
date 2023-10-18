@@ -18,10 +18,9 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @PostMapping("/create/")
+    @PostMapping("/create")
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity createUser(@RequestBody @Valid UserCreateDto user){
-        System.out.println("Passei no controller" + user);
         return userService.createUser(user);
     }
 

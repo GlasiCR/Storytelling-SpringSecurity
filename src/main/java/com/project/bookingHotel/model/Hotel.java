@@ -19,7 +19,7 @@ public class Hotel {
     private String name;
     @Column(nullable = false)
     private String descriptionHotel;
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "hotel", cascade = CascadeType.ALL)
     @JsonManagedReference
     private List<Room> rooms;
     @Column(nullable = false)

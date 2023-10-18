@@ -16,11 +16,11 @@ public class UserService {
     private UserRepository userRepository;
 
     public ResponseEntity createUser(UserCreateDto user){
-      if(userRepository.findByLogin(user.login()) != null){
+      if(userRepository.findByEmail(user.email()) != null){
             return ResponseEntity.badRequest().body("Já há usuário cadastrado com esse e-mail");
         }
         String passwordEncrypt = new BCryptPasswordEncoder().encode(user.password());
-        User newUser = new User(user.login(), passwordEncrypt, user.role());
+        User newUser = new User(user.name(), user.email(), passwordEncrypt, user.role());
         userRepository.save(newUser);
 
         return ResponseEntity.ok().body("Usuário cadastrado com sucesso");
@@ -39,9 +39,9 @@ public class UserService {
     public ResponseEntity<User> updateUserById(Long id, User user){
         return userRepository.findById(id)
                 .map(userUpdate -> {
-                    userUpdate.setLogin(user.getLogin());
+                    userUpdate.setName((user.getName()));
+                    userUpdate.setEmail(user.getEmail());
                     userUpdate.setPassword((userUpdate.getPassword()));
-                    userUpdate.setRole((userUpdate.getRole()));
                     User updateUser = userRepository.save(user);
                     return ResponseEntity.ok().body(updateUser);
         }).orElse(ResponseEntity.notFound().build());
