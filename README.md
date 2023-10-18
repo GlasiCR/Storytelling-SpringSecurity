@@ -11,8 +11,7 @@
 
 ## Storytelling sobre o Spring Security:
 
-1)	Preciso incluir no pacote da minha aplicação o Spring Security, caso contrário não tenho a ferramenta para turbinar a segurança do meu aplicativo.
-Essa dependência fica no arquivo pom.xml.
+1)	Eu preciso de uma ferramenta, o que fazemos normalmente? Compramos e incluimos na maleta de ferramentas certo? rs Pois bem, aqui não vai ser diferente, a primeira coisa que precisamos fazer para usar o Spring Security é adicionar a sua dependência ao nosso arquivo pom.xml, nossa caisa de ferramentas do Java.
 Sugiro extrair a dependência direto da fonta assim mitiga eventuais problemas por causa da versão: https://start.spring.io/ >  Seleciona “Project”, “Language”, “Spring Boot” > ADD DEPENDENCIES > Procure por Spring Security > EXPLORE
 
 2)	Agora que tenho uma ferramenta instalada para segurança, claro que ela já vem preparada para assegurar a aplicação. Então se você tinha algum endpoint funcionando, ele não está mais.
@@ -72,7 +71,7 @@ public boolean isAccountNonExpired() {
 public boolean isAccountNonLocked() {
     return true;
 }
-//Analisa de os dados não expiraram 
+//Analisa se os dados não expiraram 
 @Override
 public boolean isCredentialsNonExpired() {
     return true;
