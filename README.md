@@ -17,9 +17,9 @@ Sugiro extrair a dependência direto da fonta assim mitiga eventuais problemas p
 
 3)	Agora que tenho uma ferramenta instalada para segurança, claro que ela já vem preparada para assegurar a aplicação. Então se você tinha algum endpoint funcionando, ele não está mais.
 
-4)	Vamos falar para a nossa ferramenta de segurança que eu farei as configurações de segurança conforme a nossa necessidade:
-5)	
-   ``` 
+4)	Vamos falar para a nossa ferramenta de segurança que eu farei as configurações de segurança conforme necessidade:
+
+``` 
 @Configuration
 @EnableWebSecurity
 public class AuthConfig {
@@ -35,8 +35,8 @@ public class AuthConfig {
 
 Depois disso os endpoint devem ter voltado a funcionar normalmente, é como se tivéssemos zerado as configurações de segurança que o Security traz na instalação.
 
-4)	Bom, do que me adianta uma ferramenta de segurança se eu não falar pra ela o que deve ser assegurado, de quem e como ter certeza se quem está acessando pode acessar?
-5)	Então vamos começar pelo começo, primeiramente, quando crio um usuário tenho que avisar ao Spring Security os dados da pessoa que pode acessar e quais suas credenciais de acesso. A interface UserDetails é própria dele e tem esse papel nesse processo.
+5)	Bom, do que me adianta uma ferramenta de segurança se eu não falar pra ela o que deve ser assegurado, de quem e como ter certeza se quem está acessando pode acessar?
+6)	Então vamos começar pelo começo, primeiramente, quando crio um usuário tenho que avisar ao Spring Security os dados da pessoa que pode acessar e quais suas credenciais de acesso. A interface UserDetails é própria dele e tem esse papel nesse processo.
 E como ele vem pra facilitar, obrigatoriamente devemos implementar os métodos que vem junto com ele, os quais farão esse reconhecimento das credenciais:
  
 public class User implements UserDetails {
