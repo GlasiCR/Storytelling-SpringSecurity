@@ -18,7 +18,7 @@ Sugiro extrair a dependência direto da fonta assim mitiga eventuais problemas p
 3)	Agora que tenho uma ferramenta instalada para segurança, claro que ela já vem preparada para assegurar a aplicação. Então se você tinha algum endpoint funcionando, ele não está mais.
 
 4)	Vamos falar para a nossa ferramenta de segurança que eu farei as configurações de segurança conforme a nossa necessidade:
-`` @Configuration
+   ``` @Configuration
 @EnableWebSecurity
 public class AuthConfig {
     @Autowired
@@ -28,7 +28,7 @@ public class AuthConfig {
         return  httpSecurity
                 .csrf(csrf -> csrf.disable())
                 .build();
-    }``
+    }```
 Depois disso os endpoint devem ter voltado a funcionar normalmente, é como se tivéssemos zerado as configurações de segurança que o Security traz na instalação.
 
 4)	Bom, do que me adianta uma ferramenta de segurança se eu não falar pra ela o que deve ser assegurado, de quem e como ter certeza se quem está acessando pode acessar?
