@@ -168,4 +168,4 @@ public class AuthUserDetailsService implements UserDetailsService {
 
 <br>
 <br>
-#### em construção...
+#### projeto completo em: https://github.com/GlasiCR/API-Booking-Hotel
